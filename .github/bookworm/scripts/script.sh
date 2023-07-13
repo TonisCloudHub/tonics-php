@@ -12,7 +12,7 @@ lxc exec tonics-php -- bash -c "DEBIAN_FRONTEND=noninteractive apt install -y ph
 lxc exec tonics-php -- apt clean
 
 # Version
-Version=$(lxc exec tonics-php --php -v | head -n 1 | awk '{print $2}' | cut -d '-' -f 1)
+Version=$(lxc exec tonics-php -- php -v | head -n 1 | awk '{print $2}' | cut -d '-' -f 1)
 
 # Publish Image
 mkdir images && lxc stop tonics-php && lxc publish tonics-php --alias tonics-php
