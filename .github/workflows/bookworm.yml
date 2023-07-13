@@ -15,7 +15,7 @@ jobs:
       - uses: canonical/setup-lxd@v0.1.1
         with:
           channel: latest/stable  # switch from distro's LTS channel to latest/stable 
-      - name: Install MariaDB
+      - name: Install PHP
         run: |
           bash .github/bookworm/scripts/script.sh
 
