@@ -1,2 +1,2 @@
-# tonics-php
+# Tonics PHP
 PHP official image for TonicsCloud
