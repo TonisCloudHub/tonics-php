@@ -1,4 +1,4 @@
-name: LXD PHP Image Build
+name: LXD PHP 8.3 Image Build
 on:
   push: 
     paths:
