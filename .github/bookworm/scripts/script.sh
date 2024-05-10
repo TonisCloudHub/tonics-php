@@ -17,10 +17,10 @@ if (( $(echo "$PHP_VERSION > 8.2" | bc -l) )); then
   sudo incus exec tonics-php -- bash -c "apt install -y curl apt-transport-https"
   sudo incus exec tonics-php -- bash -c  "curl -sSLo /usr/share/keyrings/deb.sury.org-php.gpg https://packages.sury.org/php/apt.gpg"
   sudo incus exec tonics-php -- bash  <<HEREDOC
-  echo "deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] https://packages.sury.org/php/ $(sudo incus exec tonics-php -- $(lsb_release -sc)) main" > /etc/apt/sources.list.d/php.list
+  echo "deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] https://packages.sury.org/php/ $(sudo incus exec tonics-php -- bash -c "lsb_release -sc") main" > /etc/apt/sources.list.d/php.list
 HEREDOC
 
-  sudo incus exec tonics-php -- bash -c  "echo /etc/apt/sources.list.d/php.list"
+  sudo incus exec tonics-php -- bash -c  "cat /etc/apt/sources.list.d/php.list"
 
   sudo incus exec tonics-php -- bash -c "apt update -y"
 
