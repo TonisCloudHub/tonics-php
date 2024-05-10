@@ -16,7 +16,7 @@ if (( $(echo "$PHP_VERSION > 8.2" | bc -l) )); then
   # Add Ondrej's repo source and signing key along with dependencies
   sudo incus exec tonics-php -- bash -c "apt install apt-transport-https"
   sudo incus exec tonics-php -- bash -c  "curl -sSLo /usr/share/keyrings/deb.sury.org-php.gpg https://packages.sury.org/php/apt.gpg"
-  sudo incus exec tonics-php -- bash -c <<EOS
+  sudo incus exec tonics-php -- bash <<EOS
   echo "deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list
 EOS
 
