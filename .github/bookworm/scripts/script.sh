@@ -3,13 +3,15 @@
 # Init incus
 sudo incus admin init --auto
 
+PHP_VERSION=$1
+
 # Launch Instance
 sudo incus launch images:debian/bookworm/amd64 tonics-php
 
 # Dependencies
 sudo incus exec tonics-php -- bash -c "apt update -y && apt upgrade -y"
 
-sudo incus exec tonics-php -- bash -c "DEBIAN_FRONTEND=noninteractive apt install -y php php8.2-fpm php8.2-mysql php8.2-mbstring php8.2-readline php8.2-gd  php8.2-gmp php8.2-bcmath  php8.2-zip php8.2-curl php8.2-intl php8.2-apcu"
+sudo incus exec tonics-php -- bash -c "DEBIAN_FRONTEND=noninteractive apt install -y php php$PHP_VERSION-fpm php$PHP_VERSION-mysql php$PHP_VERSION-mbstring php$PHP_VERSION-readline php$PHP_VERSION-gd  php$PHP_VERSION-gmp php$PHP_VERSION-bcmath  php$PHP_VERSION-zip php$PHP_VERSION-curl php$PHP_VERSION-intl php$PHP_VERSION-apcu"
 
 # Clean Debian Cache
 sudo incus exec tonics-php -- bash -c "apt clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*"

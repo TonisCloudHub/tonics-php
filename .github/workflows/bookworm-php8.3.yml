@@ -2,7 +2,7 @@ name: LXD PHP Image Build
 on:
   push: 
     paths:
-    - '.github/workflows/bookworm.yml'
+    - '.github/workflows/bookworm-php8.3.yml'
   schedule:
   - cron: '0 0 * * *' # Once EveryDay 
 
@@ -16,7 +16,7 @@ jobs:
       
       - name: Install PHP
         run: |
-          bash .github/bookworm/scripts/script.sh
+          bash .github/bookworm/scripts/script.sh 8.3
 
       - name: Extract Tag Name
         id: extract_filename
